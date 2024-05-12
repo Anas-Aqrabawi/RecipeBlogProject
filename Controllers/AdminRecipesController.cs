@@ -26,7 +26,7 @@ namespace RecipeBlogProject.Controllers
         }
 
         // GET: Recipes/Details/5
-        public async Task<IActionResult> Details(decimal? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Recipes == null)
             {
@@ -69,7 +69,7 @@ namespace RecipeBlogProject.Controllers
         }
 
         // GET: Recipes/Edit/5
-        public async Task<IActionResult> Edit(decimal? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Recipes == null)
             {
@@ -90,7 +90,7 @@ namespace RecipeBlogProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(decimal id, [Bind("Recipeid,Receipename,Price,Ingredients,Isapproved,ChefId")] Recipe recipe)
+        public async Task<IActionResult> Edit(int id, [Bind("Recipeid,Receipename,Price,Ingredients,Isapproved,ChefId")] Recipe recipe)
         {
             if (id != recipe.Recipeid)
             {
@@ -122,7 +122,7 @@ namespace RecipeBlogProject.Controllers
         }
 
         // GET: Recipes/Delete/5
-        public async Task<IActionResult> Delete(decimal? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Recipes == null)
             {
@@ -143,7 +143,7 @@ namespace RecipeBlogProject.Controllers
         // POST: Recipes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(decimal id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Recipes == null)
             {
@@ -159,7 +159,7 @@ namespace RecipeBlogProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RecipeExists(decimal id)
+        private bool RecipeExists(int id)
         {
           return (_context.Recipes?.Any(e => e.Recipeid == id)).GetValueOrDefault();
         }

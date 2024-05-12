@@ -6,7 +6,7 @@ namespace RecipeBlogProject.Models;
 
 public partial class Person
 {
-    public decimal Personid { get; set; }
+    public int Personid { get; set; }
     [DisplayName("First Name")]
     public string Firstname { get; set; } = null!;
     [DisplayName("Last Name")]

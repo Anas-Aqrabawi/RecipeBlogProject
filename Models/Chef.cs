@@ -5,9 +5,9 @@ namespace RecipeBlogProject.Models;
 
 public partial class Chef
 {
-    public decimal Chefid { get; set; }
+    public int Chefid { get; set; }
 
-    public decimal? UserId { get; set; }
+    public int? UserId { get; set; }
 
     public virtual ICollection<Recipe> Recipes { get; set; } = new List<Recipe>();
 

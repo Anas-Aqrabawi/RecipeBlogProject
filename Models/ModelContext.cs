@@ -41,7 +41,8 @@ public partial class ModelContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseOracle("USER ID=C##ANAS1;PASSWORD=anas123;DATA SOURCE=localhost:1521/xe");
+       => optionsBuilder.UseOracle("USER ID=C##ANAS1;PASSWORD=anas123;DATA SOURCE=localhost:1521/xe");
+    //  => optionsBuilder.UseSqlServer();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -57,10 +58,10 @@ public partial class ModelContext : DbContext
 
             entity.Property(e => e.Adminid)
                 .ValueGeneratedOnAdd()
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("ADMINID");
             entity.Property(e => e.UserId)
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("USER_ID");
 
             entity.HasOne(d => d.User).WithMany(p => p.Admins)
@@ -76,7 +77,7 @@ public partial class ModelContext : DbContext
 
             entity.Property(e => e.Categoryid)
                 .ValueGeneratedOnAdd()
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("CATEGORYID");
             entity.Property(e => e.Categoryname)
                 .HasMaxLength(25)
@@ -91,10 +92,10 @@ public partial class ModelContext : DbContext
 
             entity.Property(e => e.Chefid)
                 .ValueGeneratedOnAdd()
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("CHEFID");
             entity.Property(e => e.UserId)
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("USER_ID");
 
             entity.HasOne(d => d.User).WithMany(p => p.Chefs)
@@ -114,7 +115,7 @@ public partial class ModelContext : DbContext
 
             entity.Property(e => e.Personid)
                 .ValueGeneratedOnAdd()
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("PERSONID");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
@@ -143,10 +144,10 @@ public partial class ModelContext : DbContext
 
             entity.Property(e => e.Recipeid)
                 .ValueGeneratedOnAdd()
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("RECIPEID");
             entity.Property(e => e.ChefId)
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("CHEF_ID");
             entity.Property(e => e.Ingredients)
                 .HasMaxLength(255)
@@ -155,7 +156,6 @@ public partial class ModelContext : DbContext
                 .HasPrecision(1)
                 .HasColumnName("ISAPPROVED");
             entity.Property(e => e.Price)
-                .HasColumnType("NUMBER(6,2)")
                 .HasColumnName("PRICE");
             entity.Property(e => e.Receipename)
                 .HasMaxLength(20)
@@ -174,13 +174,13 @@ public partial class ModelContext : DbContext
 
             entity.Property(e => e.Recipecategoryid)
                 .ValueGeneratedOnAdd()
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("RECIPECATEGORYID");
             entity.Property(e => e.CategoryId)
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("CATEGORY_ID");
             entity.Property(e => e.RecipeId)
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("RECIPE_ID");
 
             entity.HasOne(d => d.Category).WithMany(p => p.Recipecategories)
@@ -200,19 +200,18 @@ public partial class ModelContext : DbContext
 
             entity.Property(e => e.Recipepaymentid)
                 .ValueGeneratedOnAdd()
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("RECIPEPAYMENTID");
             entity.Property(e => e.Paymentfilepath)
                 .HasMaxLength(255)
                 .HasColumnName("PAYMENTFILEPATH");
             entity.Property(e => e.RecipeId)
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("RECIPE_ID");
             entity.Property(e => e.Totalamount)
-                .HasColumnType("NUMBER(6,2)")
                 .HasColumnName("TOTALAMOUNT");
             entity.Property(e => e.UserId)
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("USER_ID");
 
             entity.HasOne(d => d.Recipe).WithMany(p => p.Recipepayments)
@@ -236,16 +235,16 @@ public partial class ModelContext : DbContext
 
             entity.Property(e => e.Userid)
                 .ValueGeneratedOnAdd()
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("USERID");
             entity.Property(e => e.Password)
                 .HasMaxLength(20)
                 .HasColumnName("PASSWORD");
             entity.Property(e => e.PersonId)
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("PERSON_ID");
             entity.Property(e => e.RoleId)
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("ROLE_ID");
             entity.Property(e => e.Username)
                 .HasMaxLength(20)
@@ -268,13 +267,13 @@ public partial class ModelContext : DbContext
 
             entity.Property(e => e.Testimonialid)
                 .ValueGeneratedOnAdd()
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("TESTIMONIALID");
             entity.Property(e => e.IsShown)
                 .HasPrecision(1)
                 .HasColumnName("IS_SHOWN");
             entity.Property(e => e.UserId)
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("USER_ID");
             entity.Property(e => e.Usercomment)
                 .HasMaxLength(255)
@@ -313,7 +312,7 @@ public partial class ModelContext : DbContext
 
             entity.Property(e => e.Visacardid)
                 .ValueGeneratedOnAdd()
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("VISACARDID");
             entity.Property(e => e.Cardnumber)
                 .HasPrecision(16)
@@ -334,7 +333,7 @@ public partial class ModelContext : DbContext
                 .HasPrecision(4)
                 .HasColumnName("PIN");
             entity.Property(e => e.UserId)
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("USER_ID");
 
             entity.HasOne(d => d.User).WithMany(p => p.Visacards)
@@ -350,13 +349,12 @@ public partial class ModelContext : DbContext
 
             entity.Property(e => e.Websitedetailsid)
                 .ValueGeneratedOnAdd()
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("WEBSITEDETAILSID");
             entity.Property(e => e.AdminId)
-                .HasColumnType("NUMBER")
+                
                 .HasColumnName("ADMIN_ID");
             entity.Property(e => e.Texttype)
-                .HasColumnType("NUMBER(6,2)")
                 .HasColumnName("TEXTTYPE");
             entity.Property(e => e.Websitetext)
                 .HasMaxLength(255)

@@ -6,7 +6,7 @@ namespace RecipeBlogProject.Models;
 
 public partial class Recipe
 {
-    public decimal Recipeid { get; set; }
+    public int Recipeid { get; set; }
     [DisplayName("Recipe Name")]
     public string Receipename { get; set; } = null!;
 
@@ -16,7 +16,7 @@ public partial class Recipe
     [DisplayName("Is Approved?")]
     public bool Isapproved { get; set; }
 
-    public decimal? ChefId { get; set; }
+    public int? ChefId { get; set; }
 
     public virtual Chef? Chef { get; set; }
 

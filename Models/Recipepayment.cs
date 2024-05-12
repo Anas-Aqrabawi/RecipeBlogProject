@@ -6,11 +6,11 @@ namespace RecipeBlogProject.Models;
 
 public partial class Recipepayment
 {
-    public decimal Recipepaymentid { get; set; }
+    public int Recipepaymentid { get; set; }
 
-    public decimal? RecipeId { get; set; }
+    public int? RecipeId { get; set; }
 
-    public decimal? UserId { get; set; }
+    public int? UserId { get; set; }
     [DisplayName("Total Amount")]
     public decimal? Totalamount { get; set; }
     [DisplayName("Payment File Path")]

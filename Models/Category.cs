@@ -6,7 +6,7 @@ namespace RecipeBlogProject.Models;
 
 public partial class Category
 {
-    public decimal Categoryid { get; set; }
+    public int Categoryid { get; set; }
 
     [DisplayName("Category Name")]
     public string Categoryname { get; set; } = null!;

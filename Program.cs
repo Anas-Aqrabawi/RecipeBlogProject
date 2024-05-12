@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using RecipeBlogProject.Models;
 
 namespace RecipeBlogProject
@@ -12,6 +13,12 @@ namespace RecipeBlogProject
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<ModelContext>(option => option.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection")));
+            //builder.Services.AddDbContext<ModelContext>((sp, options) =>
+            //{
+            //    options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
+
+            //    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            //});
             builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
             var app = builder.Build();
