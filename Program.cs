@@ -11,7 +11,7 @@ namespace RecipeBlogProject
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<ModelContext>(option => option.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddDbContext<ModelContext>(option => option.UseOracle(builder.Configuration.GetConnectionString("RecipeBlogDB3")));
             builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
             var app = builder.Build();

@@ -8,5 +8,10 @@ namespace RecipeBlogProject.Controllers
         {
             return View();
         }
+
+        public IActionResult GetAdminCategories()
+        {
+            return View();
+        }
     }
 }

@@ -4,15 +4,15 @@ using System.ComponentModel;
 
 namespace RecipeBlogProject.Models;
 
-public partial class Recipepayment
+public partial class Recipepayment : BaseEntity
 {
-    public decimal Recipepaymentid { get; set; }
+ 
 
-    public decimal? RecipeId { get; set; }
+    public int? RecipeId { get; set; }
 
-    public decimal? UserId { get; set; }
+    public int? UserId { get; set; }
     [DisplayName("Total Amount")]
-    public decimal? Totalamount { get; set; }
+    public double? Totalamount { get; set; }
     [DisplayName("Payment File Path")]
     public string Paymentfilepath { get; set; } = null!;
 

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 namespace RecipeBlogProject.Models;
 
-public partial class Systemuser
+public partial class Systemuser : BaseEntity
 {
-    public decimal Userid { get; set; }
+   
 
     public string Username { get; set; } = null!;
 
     public string Password { get; set; } = null!;
 
-    public decimal? PersonId { get; set; }
+    public int? PersonId { get; set; }
 
     public int? RoleId { get; set; }
 

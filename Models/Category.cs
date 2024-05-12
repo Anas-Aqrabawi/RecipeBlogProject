@@ -4,9 +4,8 @@ using System.ComponentModel;
 
 namespace RecipeBlogProject.Models;
 
-public partial class Category
+public partial class Category: BaseEntity
 {
-    public decimal Categoryid { get; set; }
 
     [DisplayName("Category Name")]
     public string Categoryname { get; set; } = null!;

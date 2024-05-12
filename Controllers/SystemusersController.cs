@@ -28,7 +28,7 @@ namespace RecipeBlogProject.Controllers
         }
 
         // GET: Systemusers/Details/5
-        public async Task<IActionResult> Details(decimal? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Systemusers == null)
             {
@@ -38,7 +38,7 @@ namespace RecipeBlogProject.Controllers
             var systemuser = await _context.Systemusers
                 .Include(s => s.Person)
                 .Include(s => s.Role)
-                .FirstOrDefaultAsync(m => m.Userid == id);
+                .FirstOrDefaultAsync(m => m.id == id);
             if (systemuser == null)
             {
                 return NotFound();
@@ -74,7 +74,7 @@ namespace RecipeBlogProject.Controllers
         }
 
         // GET: Systemusers/Edit/5
-        public async Task<IActionResult> Edit(decimal? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Systemusers == null)
             {
@@ -96,9 +96,9 @@ namespace RecipeBlogProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(decimal id, [Bind("Userid,Username,Password,PersonId,RoleId")] Systemuser systemuser)
+        public async Task<IActionResult> Edit(int id, [Bind("Userid,Username,Password,PersonId,RoleId")] Systemuser systemuser)
         {
-            if (id != systemuser.Userid)
+            if (id != systemuser.id)
             {
                 return NotFound();
             }
@@ -112,7 +112,7 @@ namespace RecipeBlogProject.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SystemuserExists(systemuser.Userid))
+                    if (!SystemuserExists(systemuser.id))
                     {
                         return NotFound();
                     }
@@ -129,7 +129,7 @@ namespace RecipeBlogProject.Controllers
         }
 
         // GET: Systemusers/Delete/5
-        public async Task<IActionResult> Delete(decimal? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Systemusers == null)
             {
@@ -139,7 +139,7 @@ namespace RecipeBlogProject.Controllers
             var systemuser = await _context.Systemusers
                 .Include(s => s.Person)
                 .Include(s => s.Role)
-                .FirstOrDefaultAsync(m => m.Userid == id);
+                .FirstOrDefaultAsync(m => m.id == id);
             if (systemuser == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace RecipeBlogProject.Controllers
         // POST: Systemusers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(decimal id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Systemusers == null)
             {
@@ -167,9 +167,9 @@ namespace RecipeBlogProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SystemuserExists(decimal id)
+        private bool SystemuserExists(int id)
         {
-          return (_context.Systemusers?.Any(e => e.Userid == id)).GetValueOrDefault();
+          return (_context.Systemusers?.Any(e => e.id == id)).GetValueOrDefault();
         }
     }
 }

@@ -43,12 +43,12 @@
                                 @Html.DisplayFor(modelItem => item.Isapproved)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Chef.Chefid)
+                                @Html.DisplayFor(modelItem => item.Chef.id)
                             </td>
                             <td>
-                                <a asp-action="Edit" asp-route-id="@item.Recipeid">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.Recipeid">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.Recipeid">Delete</a>
+                                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
                             </td>
                         </tr>
                     }

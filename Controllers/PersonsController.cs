@@ -27,7 +27,7 @@ namespace RecipeBlogProject.Controllers
         }
 
         // GET: Persons/Details/5
-        public async Task<IActionResult> Details(decimal? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Persons == null)
             {
@@ -35,7 +35,7 @@ namespace RecipeBlogProject.Controllers
             }
 
             var person = await _context.Persons
-                .FirstOrDefaultAsync(m => m.Personid == id);
+                .FirstOrDefaultAsync(m => m.id == id);
             if (person == null)
             {
                 return NotFound();
@@ -67,7 +67,7 @@ namespace RecipeBlogProject.Controllers
         }
 
         // GET: Persons/Edit/5
-        public async Task<IActionResult> Edit(decimal? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Persons == null)
             {
@@ -87,9 +87,9 @@ namespace RecipeBlogProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(decimal id, [Bind("Personid,Firstname,Lastname,Gender,Email,Phone")] Person person)
+        public async Task<IActionResult> Edit(int id, [Bind("Personid,Firstname,Lastname,Gender,Email,Phone")] Person person)
         {
-            if (id != person.Personid)
+            if (id != person.id)
             {
                 return NotFound();
             }
@@ -103,7 +103,7 @@ namespace RecipeBlogProject.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PersonExists(person.Personid))
+                    if (!PersonExists(person.id))
                     {
                         return NotFound();
                     }
@@ -118,7 +118,7 @@ namespace RecipeBlogProject.Controllers
         }
 
         // GET: Persons/Delete/5
-        public async Task<IActionResult> Delete(decimal? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Persons == null)
             {
@@ -126,7 +126,7 @@ namespace RecipeBlogProject.Controllers
             }
 
             var person = await _context.Persons
-                .FirstOrDefaultAsync(m => m.Personid == id);
+                .FirstOrDefaultAsync(m => m.id == id);
             if (person == null)
             {
                 return NotFound();
@@ -138,7 +138,7 @@ namespace RecipeBlogProject.Controllers
         // POST: Persons/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(decimal id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Persons == null)
             {
@@ -154,9 +154,9 @@ namespace RecipeBlogProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PersonExists(decimal id)
+        private bool PersonExists(int id)
         {
-          return (_context.Persons?.Any(e => e.Personid == id)).GetValueOrDefault();
+          return (_context.Persons?.Any(e => e.id == id)).GetValueOrDefault();
         }
     }
 }

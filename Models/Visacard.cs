@@ -4,9 +4,9 @@ using System.ComponentModel;
 
 namespace RecipeBlogProject.Models;
 
-public partial class Visacard
+public partial class Visacard : BaseEntity
 {
-    public decimal Visacardid { get; set; }
+   
     [DisplayName("First Name")]
     public string Firstname { get; set; } = null!;
     [DisplayName("Last Name")]
@@ -20,7 +20,7 @@ public partial class Visacard
 
     public byte Cvv { get; set; }
 
-    public decimal? UserId { get; set; }
+    public int? UserId { get; set; }
 
     public virtual Systemuser? User { get; set; }
 }

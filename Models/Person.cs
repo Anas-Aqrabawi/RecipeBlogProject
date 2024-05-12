@@ -4,9 +4,9 @@ using System.ComponentModel;
 
 namespace RecipeBlogProject.Models;
 
-public partial class Person
+public partial class Person : BaseEntity
 {
-    public decimal Personid { get; set; }
+  
     [DisplayName("First Name")]
     public string Firstname { get; set; } = null!;
     [DisplayName("Last Name")]

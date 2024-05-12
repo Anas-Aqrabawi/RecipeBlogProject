@@ -4,19 +4,19 @@ using System.ComponentModel;
 
 namespace RecipeBlogProject.Models;
 
-public partial class Recipe
+public partial class Recipe : BaseEntity
 {
-    public decimal Recipeid { get; set; }
+   
     [DisplayName("Recipe Name")]
     public string Receipename { get; set; } = null!;
 
-    public decimal? Price { get; set; }
+    public double? Price { get; set; }
 
     public string Ingredients { get; set; } = null!;
     [DisplayName("Is Approved?")]
     public bool Isapproved { get; set; }
 
-    public decimal? ChefId { get; set; }
+    public int? ChefId { get; set; }
 
     public virtual Chef? Chef { get; set; }
 

@@ -51,9 +51,9 @@ namespace RecipeBlogProject.Controllers
             return View(recipe);
         }
 
-        private bool RecipeExists(decimal id)
+        private bool RecipeExists(int id)
         {
-          return (_context.Recipes?.Any(e => e.Recipeid == id)).GetValueOrDefault();
+          return (_context.Recipes?.Any(e => e.id == id)).GetValueOrDefault();
         }
     }
 }

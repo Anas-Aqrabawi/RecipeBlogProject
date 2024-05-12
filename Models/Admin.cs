@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace RecipeBlogProject.Models;
 
-public partial class Admin
+public partial class Admin: BaseEntity
 {
-    public decimal Adminid { get; set; }
+    
 
-    public decimal? UserId { get; set; }
+    public int? UserId { get; set; }
 
     public virtual Systemuser? User { get; set; }
 

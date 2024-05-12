@@ -4,9 +4,9 @@ using System.ComponentModel;
 
 namespace RecipeBlogProject.Models;
 
-public partial class Userrole
+public partial class Userrole : BaseEntity
 {
-    public int Roleid { get; set; }
+   
     [DisplayName("Role Name")]
     public string RoleName { get; set; } = null!;
 
